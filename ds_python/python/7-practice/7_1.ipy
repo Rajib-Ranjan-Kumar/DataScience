@@ -1,0 +1,9 @@
+def sum_list(numbers):
+    # Your code goes here
+    sum=0
+    for n in numbers:
+        sum+=n
+        
+    return sum
+
+print(sum_list([1,2,3,4]))
