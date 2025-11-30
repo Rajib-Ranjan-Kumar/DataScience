@@ -1,0 +1,82 @@
+In Data Science, cleaning the dataset (also called data cleaning or data preprocessing) means fixing or removing anything in the dataset that can cause wrong, incomplete, or misleading results.
+
+Here’s what data cleaning consists of, in simple terms:
+✅ 0. Checking Columns name is correct or not 
+ # Strip spaces – remove leading/trailing spaces in column names.
+ # Fix capitalization – make all names lowercase or consistent.
+# Remove special characters – brackets, $, %, /, etc.
+# Replace spaces – convert spaces to _ for safe access.
+# Fix typos & unclear names – correct spelling and make names meaningful.
+# Handle duplicates – remove or rename duplicate column names.
+# Avoid problematic names – no starting with numbers or reserved keywords (class, for, etc.).
+
+
+
+
+# df.columns = df.columns.str.strip()                           # 1. remove spaces
+# df.columns = df.columns.str.lower()                           # 2. lowercase
+# df.columns = df.columns.str.replace(' ', '_')                 # 3. space → underscore
+# df.columns = df.columns.str.replace('[^a-z0-9_]', '', regex=True)  # 4. remove symbols
+# df.columns = df.columns.str.replace('__+', '_', regex=True)   # 5. fix multiple underscores
+# df = df.loc[:, ~df.columns.duplicated()]                      # 6. remove duplicate columns
+# df.columns = ['col_'+c if c[0].isdigit() else c for c in df.columns]  # 7. fix names starting with numbers
+
+✅ 1. Handling Missing Values
+
+Sometimes the dataset has empty entries (NaN, blank, null).
+# Cleaning includes:
+# Removing rows/columns with too many missing values
+# Filling missing values (mean, median, mode, forward fill, backward fill)
+# Predicting missing values using models
+
+✅ 2. Removing or Correcting Errors
+
+Examples:
+# Wrong spelling ("Male", "male", "MALE" → unifying)
+# Negative age, impossible values
+# Incorrect formats (dates, currency, etc.)
+
+✅ 3. Handling Duplicates
+
+# Removing duplicate rows
+# Identifying repeated entries
+
+✅ 4. Fixing Data Types
+
+# Ensuring each column has the correct type:
+# Convert strings to dates
+# Convert numbers stored as text into integers/floats
+# Convert categories to categorical datatype
+
+✅ 5. Dealing with Outliers
+
+# Outliers = values far away from normal range.
+## Handling includes:
+Removing them
+# Transforming them (log transform)
+# Treating them depending on context
+
+✅ 6. Normalization or Scaling
+
+# Making values fall in a similar range so models can learn properly.
+Examples:
+## Min-max scaling
+## Standardization (z-score)
+
+✅ 7. Encoding Categorical Data
+
+# Converting non-numeric data (like “Female”, “Male”) into numeric form:
+# One-hot encoding
+# Label encoding
+# Target encoding (supervised)
+
+✅ 8. Handling Imbalanced Data
+
+# If classes are uneven (e.g., Fraud=1%, Non-Fraud=99%), you need:
+## Oversampling (SMOTE)
+## Undersampling
+## Class weights
+
+In summary:
+
+Data cleaning = making your data correct, complete, consistent, and ready for modeling.
