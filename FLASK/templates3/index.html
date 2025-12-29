@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Index Page{% endblock %}
+
+{% block content%}
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Voluptate consequuntur non, omnis doloremque nemo deleniti 
+         ipsa earum at libero alias ratione iusto nesciunt, sit maiores
+          voluptatibus, odit reprehenderit accusantium nostrum.
+    </P>
+    <br>
+    <h1>
+       myvalue= {{myvalue}}
+       <br>
+       myresult={{result}}
+       <br>
+       {{list}}
+    </h1>
+
+    <ul>
+       {% for l in list %}
+       <li>{{l}}</li>
+       {% endfor %}
+    </ul>
+<p>
+   {{somevalue|upper}}
+   {{somevalue|reverse_string}}
+   {{somevalue|replace('er','RAjib')}}
+   {{somevalue|alternate}}
+
+
+</p>
+    {% endblock %}
